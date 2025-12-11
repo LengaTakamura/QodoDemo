@@ -29,5 +29,11 @@ public class Demo : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         myRigidbody.AddForce(0, -9.81f, 0);
         myTransform.position = new Vector3(0, 5, 0);
+        
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision Detected with " + collision.gameObject.name);
     }
 }
