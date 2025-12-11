@@ -25,3 +25,10 @@ response_language = "ja-JP"
 extra_instructions = "すべて日本語で改善提案をしてください。英語は使用しないでください。"
 focus_only_on_problems = false
 allow_thumbs_up_down = true
+
+[github_app]
+handle_push_trigger = true
+push_commands = [
+    "/describe",
+    "/review",
+]
