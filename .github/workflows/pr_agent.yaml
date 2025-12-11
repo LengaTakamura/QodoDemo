@@ -13,13 +13,13 @@ jobs:
       contents: write
     steps:
       - name: PR Agent action step
-        uses: qodo-ai/pr-agent@main
+        uses: qodo-ai/pr-agent@v0.27
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CONFIG.RESPONSE_LANGUAGE: "ja"
-          CONFIG.MODEL: "o1-preview"
-          CONFIG.FALLBACK_MODEL: "o1-preview-2024-09-12"
+          CONFIG.RESPONSE_LANGUAGE: "ja-JP"
+          CONFIG.MODEL: "gpt-4o"
+          CONFIG.FALLBACK_MODEL: "gpt-4.1-mini"
           PR_DESCRIPTION.EXTRA_INSTRUCTIONS: "すべて日本語で説明してください。英語は使用しないでください。"
           PR_REVIEWER.EXTRA_INSTRUCTIONS: "すべて日本語でレビューしてください。英語は使用しないでください。"
           PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: "すべて日本語で改善提案をしてください。英語は使用しないでください。"
