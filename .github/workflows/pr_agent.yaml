@@ -19,7 +19,7 @@ jobs:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # opeanAIのモデル選択
-          config.model: "gpt-4o"
+          config.model: "o1-preview"
           # opeanAIのフォールバックモデル選択
           config.fallback_model: "o1-preview-2024-09-12"
           # pr_descriptionにおいてPRのタイトルも自動生成する
