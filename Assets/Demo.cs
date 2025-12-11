@@ -37,6 +37,7 @@ public class Demo : MonoBehaviour
         Debug.Log("Collision Detected with " + collision.gameObject.name);
         collision.gameObject.SetActive(true);
         collision.gameObject.transform.position = new Vector3(0, 5, 0);
-        collision.gameObject.GetComponent<Renderer>().material.color = Color.white;
+        collision.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        collision.gameObject.GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
     }
 }
