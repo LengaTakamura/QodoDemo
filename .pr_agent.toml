@@ -10,7 +10,7 @@ use_repo_settings_file = true
 custom_reasoning_model = false
 
 [pr_description]
-extra_instructions = "すべて日本語で説明してください。英語は使用しないでください。"
+extra_instructions = "PRタイトルと説明文はすべて日本語で説明してください。英語は使用しないでください。"
 
 [pr_reviewer]
 extra_instructions = "すべて日本語でレビューしてください。英語は使用しないでください。"
