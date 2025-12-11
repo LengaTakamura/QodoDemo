@@ -19,7 +19,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG.RESPONSE_LANGUAGE: "ja-JP"
           CONFIG.MODEL: "gpt-5.1-codex-mini"
-          CONFIG.FALLBACK_MODEL: "gpt-5.1-codex-max"
+          CONFIG.FALLBACK_MODELS: '["gpt-5.1-codex-mini"]'
           PR_DESCRIPTION.EXTRA_INSTRUCTIONS: "すべて日本語で説明してください。英語は使用しないでください。"
           PR_REVIEWER.EXTRA_INSTRUCTIONS: "すべて日本語でレビューしてください。英語は使用しないでください。"
           PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: "すべて日本語で改善提案をしてください。英語は使用しないでください。"
