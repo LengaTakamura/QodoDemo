@@ -1,47 +1,31 @@
-name: PR Agent
-on:
-  pull_request:
-    types: [opened, reopened, ready_for_review]
-  issue_comment:
-jobs:
-  pr_agent_job:
-    if: ${{ github.actor != 'github-actions[bot]' }}
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
-      contents: write
-    steps:
       - name: PR Agent action step
         uses: qodo-ai/pr-agent@v0.27
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          # ==== ここが重要 ====
-          # 使うモデルは gpt-5.1-codex-mini だけ
-          CONFIG__MODEL: "gpt-5.1-codex-mini"
-          CONFIG__FALLBACK_MODELS: '["gpt-5.1-codex-mini"]'
+          # ==== モデル設定 ====
+          CONFIG.MODEL: "gpt-5.1-codex-mini"
+          CONFIG.FALLBACK_MODELS: '["gpt-5.1-codex-mini"]'
 
-          # reasoning.effort は OpenAI 側が許可している値を使う
-          # （low / medium / high のどれか。minimal は絶対 NG）
-          CONFIG__REASONING_EFFORT: "low"
+          # ==== reasoning 設定 ====
+          CONFIG.REASONING_EFFORT: "low"
+          PR_DESCRIPTION.REASONING_EFFORT: "low"
+          PR_REVIEWER.REASONING_EFFORT: "low"
+          PR_CODE_SUGGESTIONS.REASONING_EFFORT: "low"
 
-          # 他の設定ファイルを読みに行かないようにする
-          CONFIG__USE_WIKI_SETTINGS_FILE: "false"
-          CONFIG__USE_REPO_SETTINGS_FILE: "false"
-          CONFIG__USE_GLOBAL_SETTINGS_FILE: "false"
+          CONFIG.USE_WIKI_SETTINGS_FILE: "false"
+          CONFIG.USE_REPO_SETTINGS_FILE: "false"
+          CONFIG.USE_GLOBAL_SETTINGS_FILE: "false"
+          CONFIG.CUSTOM_REASONING_MODEL: "false"
 
-          # 念のためカスタム reasoning モデルも無効化
-          CONFIG__CUSTOM_REASONING_MODEL: "false"
-          # =====================
+          # ==== 日本語設定 ====
+          CONFIG.RESPONSE_LANGUAGE: "ja-JP"
+          PR_DESCRIPTION.EXTRA_INSTRUCTIONS: "すべて日本語で説明してください。英語は使用しないでください。"
+          PR_REVIEWER.EXTRA_INSTRUCTIONS: "すべて日本語でレビューしてください。英語は使用しないでください。"
+          PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: "すべて日本語で改善提案をしてください。英語は使用しないでください。"
 
-          CONFIG__RESPONSE_LANGUAGE: "ja-JP"
-          PR_DESCRIPTION__EXTRA_INSTRUCTIONS: "すべて日本語で説明してください。英語は使用しないでください。"
-          PR_REVIEWER__EXTRA_INSTRUCTIONS: "すべて日本語でレビューしてください。英語は使用しないでください。"
-          PR_CODE_SUGGESTIONS__EXTRA_INSTRUCTIONS: "すべて日本語で改善提案をしてください。英語は使用しないでください。"
-
-          PR_REVIEWER__REQUIRE_SCORE_REVIEW: true
-          PR_REVIEWER__REQUIRE_CAN_BE_SPLIT_REVIEW: true
-          PR_CODE_SUGGESTIONS__FOCUS_ONLY_ON_PROBLEMS: false
-          PR_CODE_SUGGESTIONS__ALLOW_THUMBS_UP_DOWN: true
+          PR_REVIEWER.REQUIRE_SCORE_REVIEW: true
+          PR_REVIEWER.REQUIRE_CAN_BE_SPLIT_REVIEW: true
+          PR_CODE_SUGGESTIONS.FOCUS_ONLY_ON_PROBLEMS: false
+          PR_CODE_SUGGESTIONS.ALLOW_THUMBS_UP_DOWN: true
