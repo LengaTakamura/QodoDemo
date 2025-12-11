@@ -28,8 +28,6 @@ jobs:
           pr_reviewer.require_score_review: true
           # pr_reviewにおけるPRが分割できるかどうかを判断してくれる機能を有効化
           pr_reviewer.require_can_be_split_review: true
-          # pr_improveにおける追加のプロンプト
-          pr_code_suggestions.extra_instructions: "Please use Japanese for everything." 
           # pr_improveにおいて問題点にのみ焦点を当てるか（falseだと可読性や保守性等の指摘が入りやすくなる）
           pr_code_suggestions.focus_only_on_problems: false
           # pr_improveにおける各提案にGood/Badの評価をつける機能を有効化
