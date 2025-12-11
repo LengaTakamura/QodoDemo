@@ -17,6 +17,8 @@ public class EnemySpawner : MonoBehaviour
     {
         Init();
         _maxSize = 10000;
+        _onBeatAction?.Invoke();
+        DebugWave();
     }
 
     private void Init()
