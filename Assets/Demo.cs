@@ -35,5 +35,6 @@ public class Demo : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision Detected with " + collision.gameObject.name);
+        collision.gameObject.SetActive(false);
     }
 }
