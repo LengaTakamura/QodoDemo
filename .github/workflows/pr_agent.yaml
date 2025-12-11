@@ -17,12 +17,12 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CONFIG.RESPONSE_LANGUAGE: "ja-JP"
+          CONFIG.RESPONSE_LANGUAGE: "ja"
           CONFIG.MODEL: "o1-preview"
           CONFIG.FALLBACK_MODEL: "o1-preview-2024-09-12"
-          PR_DESCRIPTION.EXTRA_INSTRUCTIONS: "すべて日本語で説明してください。"
-          PR_REVIEWER.EXTRA_INSTRUCTIONS: "すべて日本語でレビューしてください。"
-          PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: "すべて日本語で改善提案をしてください。"
+          PR_DESCRIPTION.EXTRA_INSTRUCTIONS: "すべて日本語で説明してください。英語は使用しないでください。"
+          PR_REVIEWER.EXTRA_INSTRUCTIONS: "すべて日本語でレビューしてください。英語は使用しないでください。"
+          PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: "すべて日本語で改善提案をしてください。英語は使用しないでください。"
           PR_REVIEWER.REQUIRE_SCORE_REVIEW: true
           PR_REVIEWER.REQUIRE_CAN_BE_SPLIT_REVIEW: true
           PR_CODE_SUGGESTIONS.FOCUS_ONLY_ON_PROBLEMS: false
