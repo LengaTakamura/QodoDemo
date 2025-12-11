@@ -36,5 +36,6 @@ public class Demo : MonoBehaviour
     {
         Debug.Log("Collision Detected with " + collision.gameObject.name);
         collision.gameObject.SetActive(true);
+        collision.gameObject.transform.position = new Vector3(0, 5, 0);
     }
 }
