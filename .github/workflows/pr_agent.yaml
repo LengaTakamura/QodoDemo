@@ -4,7 +4,6 @@ on:
   issue_comment:
 jobs:
   pr_agent_job:
-    if: ${{ github.event.sender.type != 'Bot' }}
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -18,22 +17,13 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # opeanAIのモデル選択
-          config.model: "o1-preview"
-          # opeanAIのフォールバックモデル選択
-          config.fallback_model: "o1-preview-2024-09-12"
-          # pr_descriptionにおいてPRのタイトルも自動生成する
-          generate_ai_title: true 
-          # pr_reviewにおけるPRにスコアを付ける機能を有効化
-          pr_reviewer.require_score_review: true
-          # pr_reviewにおけるPRが分割できるかどうかを判断してくれる機能を有効化
-          pr_reviewer.require_can_be_split_review: true
-
-          # pr_improveにおいて問題点にのみ焦点を当てるか（falseだと可読性や保守性等の指摘が入りやすくなる）
-          pr_code_suggestions.focus_only_on_problems: false
-          # pr_improveにおける各提案にGood/Badの評価をつける機能を有効化
-          pr_code_suggestions.allow_thumbs_up_down: true
-
-          config.response_language: "ja-JP"
-          config.output_relevant_configurations: true
-
+          CONFIG.RESPONSE_LANGUAGE: "ja-JP"
+          CONFIG.MODEL: "o1-preview"
+          CONFIG.FALLBACK_MODEL: "o1-preview-2024-09-12"
+          PR_DESCRIPTION.EXTRA_INSTRUCTIONS: "すべて日本語で説明してください。"
+          PR_REVIEWER.EXTRA_INSTRUCTIONS: "すべて日本語でレビューしてください。"
+          PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: "すべて日本語で改善提案をしてください。"
+          PR_REVIEWER.REQUIRE_SCORE_REVIEW: true
+          PR_REVIEWER.REQUIRE_CAN_BE_SPLIT_REVIEW: true
+          PR_CODE_SUGGESTIONS.FOCUS_ONLY_ON_PROBLEMS: false
+          PR_CODE_SUGGESTIONS.ALLOW_THUMBS_UP_DOWN: true
