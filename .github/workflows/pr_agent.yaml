@@ -4,7 +4,6 @@ on:
   issue_comment:
 jobs:
   pr_agent_job:
-    if: ${{ github.event.sender.type != 'Bot' }}
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -28,4 +27,3 @@ jobs:
           PR_REVIEWER.REQUIRE_CAN_BE_SPLIT_REVIEW: true
           PR_CODE_SUGGESTIONS.FOCUS_ONLY_ON_PROBLEMS: false
           PR_CODE_SUGGESTIONS.ALLOW_THUMBS_UP_DOWN: true
-
