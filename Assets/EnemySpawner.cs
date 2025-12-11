@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         Init();
+        _maxSize = 10000;
     }
 
     private void Init()
