@@ -18,7 +18,6 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          [config]
           # opeanAIのモデル選択
           config.model: "o1-preview"
           # opeanAIのフォールバックモデル選択
@@ -35,7 +34,6 @@ jobs:
           # pr_improveにおける各提案にGood/Badの評価をつける機能を有効化
           pr_code_suggestions.allow_thumbs_up_down: true
 
-          /config --response_language: "ja-JP"
-          [pr_config]
-          /improve --config.output_relevant_configurations: true
+          config.response_language: "ja-JP"
+          config.output_relevant_configurations: true
 
