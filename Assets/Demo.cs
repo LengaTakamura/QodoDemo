@@ -6,6 +6,8 @@ public class Demo : MonoBehaviour
 
     public float Speed = 10f;
     public int health = 100;
+
+    Rigidbody myRigidbody;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,5 +22,11 @@ public class Demo : MonoBehaviour
     {
         transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+    }
+
+    void FixedUpdate()
+    {
+        myRigidbody = GetComponent<Rigidbody>();
+        myRigidbody.AddForce(0, -9.81f, 0);
     }
 }
