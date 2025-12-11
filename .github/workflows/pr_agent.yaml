@@ -19,7 +19,7 @@ jobs:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # opeanAIのモデル選択
-          config.model: "gpt-4o"
+          config.model: "o1-preview"
           # opeanAIのフォールバックモデル選択
           config.fallback_model: "o1-preview-2024-09-12"
           # pr_descriptionにおいてPRのタイトルも自動生成する
@@ -28,10 +28,11 @@ jobs:
           pr_reviewer.require_score_review: true
           # pr_reviewにおけるPRが分割できるかどうかを判断してくれる機能を有効化
           pr_reviewer.require_can_be_split_review: true
+
           # pr_improveにおいて問題点にのみ焦点を当てるか（falseだと可読性や保守性等の指摘が入りやすくなる）
           pr_code_suggestions.focus_only_on_problems: false
           # pr_improveにおける各提案にGood/Badの評価をつける機能を有効化
           pr_code_suggestions.allow_thumbs_up_down: true
 
-          respanse_language: "ja-JP"
+          response_language: "ja-JP"
 
