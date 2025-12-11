@@ -4,20 +4,24 @@ fallback_models = ["gpt-5.1-codex-mini"]
 reasoning_effort = "low"
 response_language = "ja-JP"
 
-use_global_settings_file = true
-use_wiki_settings_file = false
 use_repo_settings_file = true
+use_global_settings_file = false
+use_wiki_settings_file = false
 custom_reasoning_model = false
 
 [pr_description]
+response_language = "ja-JP"
+generate_ai_title = true
 extra_instructions = "PRタイトルと説明文はすべて日本語で説明してください。英語は使用しないでください。"
 
 [pr_reviewer]
+response_language = "ja-JP"
 extra_instructions = "すべて日本語でレビューしてください。英語は使用しないでください。"
 require_score_review = true
 require_can_be_split_review = true
 
 [pr_code_suggestions]
+response_language = "ja-JP"
 extra_instructions = "すべて日本語で改善提案をしてください。英語は使用しないでください。"
 focus_only_on_problems = false
 allow_thumbs_up_down = true
