@@ -12,7 +12,7 @@ custom_reasoning_model = false
 [pr_description]
 response_language = "ja-JP"
 generate_ai_title = true
-extra_instructions = "PRタイトルと説明文はすべて日本語で説明してください。英語は使用しないでください。"
+extra_instructions = "PRTypeと説明文はすべて日本語で説明してください。英語は使用しないでください。"
 
 [pr_reviewer]
 response_language = "ja-JP"
